@@ -3,8 +3,13 @@ import Html.App as App
 import Html.Events exposing (onInput)
 
 
+main : Program Never
 main =
-  App.beginnerProgram { model = model, view = view, update = update }
+  App.beginnerProgram
+    { model = model
+    , view = view
+    , update = update
+    }
 
 
 -- MODEL
