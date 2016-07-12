@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.nav-link {
+  padding: 5px 10px;
+}
+
+.main-header {
+  padding: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+
+.body-wrap {
+  padding: 20px;
+}

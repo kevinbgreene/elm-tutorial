@@ -1,0 +1,25 @@
+{
+  "name": "elm-tutorial",
+  "version": "1.0.0",
+  "description": "Source code for a tutorial on building web applications",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "express": "^4.14.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevinbgreene/elm-tutorial.git"
+  },
+  "author": "Kevin Greene <hightimesteddy@gmail.com>",
+  "license": "BSD3",
+  "bugs": {
+    "url": "https://github.com/kevinbgreene/elm-tutorial/issues"
+  },
+  "homepage": "https://github.com/kevinbgreene/elm-tutorial"
+}
