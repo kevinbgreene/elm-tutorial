@@ -137,23 +137,6 @@ view state =
     ]
 
 
-
-viewHeader : Html Msg
-viewHeader =
-  header
-    [ class "main-header"
-    ]
-    [ a (linkAttrs ShowHome "/") [ text "Home" ]
-    , a (linkAttrs ShowPosts "/posts") [ text "Posts" ]
-    ]
-
-linkAttrs : Msg -> String -> List (Attribute Msg)
-linkAttrs message link =
-  [ onClick message
-  , href link
-  , class "nav-link"
-  ]
-
 viewBody : State -> Html Msg
 viewBody state =
   div [ class "body-wrap" ] [ bodyContent state ]
@@ -170,16 +153,34 @@ bodyContent state =
     _ -> div [] [ text "Not Found" ]
 
 
-noBubble : Options
-noBubble =
-  { stopPropagation = True
-  , preventDefault = True
-  }
+viewHeader : Html Msg
+viewHeader =
+  header
+    [ class "main-header"
+    ]
+    [ a (linkAttrs ShowHome "/") [ text "Home" ]
+    , a (linkAttrs ShowPosts "/posts") [ text "Posts" ]
+    ]
+
+
+linkAttrs : Msg -> String -> List (Attribute Msg)
+linkAttrs message link =
+  [ onClick message
+  , href link
+  , class "nav-link"
+  ]
 
 
 onClick : Msg -> Attribute Msg
 onClick message =
   onWithOptions "click" noBubble (Json.succeed message)
+
+
+noBubble : Options
+noBubble =
+  { stopPropagation = True
+  , preventDefault = True
+  }
 
 
 -- SUBSCRIPTIONS
