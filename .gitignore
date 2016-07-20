@@ -3,3 +3,4 @@ elm-stuff
 node_modules
 *.log
 app.js
+tests/test.js

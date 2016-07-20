@@ -10,7 +10,9 @@
     "express": "^4.14.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean-build": "rm -rf elm-stuff; elm package install -y; elm make ./src/Main.elm --output=app.js;",
+    "build": "elm make ./src/Main.elm --output=app.js;",
+    "test": "cd tests; elm package install -y; elm make ./Test.elm --output=test.js; node -r ./mock-document ./test.js; cd ..;"
   },
   "repository": {
     "type": "git",

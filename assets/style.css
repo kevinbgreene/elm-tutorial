@@ -1,7 +1,13 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: Helvetica, Arial, sans-serif;
+}
+
+ul,
+li {
+  list-style: none;
 }
 
 .nav-link {
@@ -15,4 +21,7 @@
 
 .body-wrap {
   padding: 20px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
