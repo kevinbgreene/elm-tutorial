@@ -1,5 +1,6 @@
 import Test.Routing.Parsers as ParserTest
 import Test.Routing.Routes as RoutesTest
+import Test.Decoders.Posts as DecoderTest
 import ElmTest exposing (Test, suite)
 import ElmTest
 
@@ -15,4 +16,5 @@ allTests =
     "All Tests"
     [ ParserTest.tests
     , RoutesTest.tests
+    , DecoderTest.tests
     ]

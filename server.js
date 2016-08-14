@@ -1,19 +1,34 @@
 const express = require('express');
 const app = express();
 
-
-var counter = 0;
-const dataStore = {};
+function getPosts() {
+  return [
+    {
+      id : 0,
+      author : 'John Doe',
+      title : 'First Title',
+      body : 'First Body'
+    },
+    {
+      id : 1,
+      author : 'Jane Doe',
+      title : 'Second Title',
+      body : 'Second Body'
+    }
+  ];
+}
 
 
 app.use(express.static('./'));
 app.use(express.static('./assets'));
 
+app.get('/api/posts', (req, res) => {
+  const posts = getPosts();
+  res.json(posts);
+});
+
 app.get('/api/*', (req, res) => {
-  console.log('req: ' + counter);
-  res.json({
-    count : (counter++)
-  });
+  res.status(404).send('Not Found');
 });
 
 app.get('*', (req, res) => {

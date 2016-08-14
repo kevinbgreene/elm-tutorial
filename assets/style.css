@@ -1,3 +1,7 @@
+/*
+ * RESET
+ */
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +13,10 @@ ul,
 li {
   list-style: none;
 }
+
+/*
+ * CHROME
+ */
 
 .nav-link {
   padding: 5px 10px;
@@ -25,3 +33,11 @@ li {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+/*
+ * HOME PAGE
+ */
+
+/*
+ * DETAIL PAGE
+ */
