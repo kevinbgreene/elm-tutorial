@@ -5,7 +5,7 @@ import Html exposing (Html, Attribute, h2, ul, li, div, text, a, p, header)
 import Html.Attributes exposing (class, href)
 import Routing.Routes as Routing
 import Routing.Routes exposing (..)
-import Post.View as PostView
+import Post.View.Detail as PostDetail
 import View.NotFound as NotFoundView
 import Messages exposing (Msg(..))
 import Models exposing (State, Post)
@@ -24,7 +24,7 @@ bodyContent state =
       postListView state.posts
 
     PostRoute postId ->
-      PostView.view postId
+      PostDetail.view state.current
 
     _ ->
       NotFoundView.view
@@ -37,7 +37,7 @@ postListView maybePosts =
       postList posts
 
     Nothing ->
-      div [ class "empty-results" ] [ text "no articles" ]
+      div [ class "empty-results" ] [ text "Loading" ]
 
 
 postList : List Post -> Html Msg
@@ -49,10 +49,9 @@ postEntry : Post -> Html Msg
 postEntry post =
   li [ class "post-entry" ]
     [ a (postLinkAttrs (ShowPost post.id) (Routing.reverse (PostRoute post.id)))
-      [ h2 [ class "post-header" ] [ text post.title ]
-      , p [ class "post-body" ] [ text post.body ]
-      ]
+      [ h2 [ class "post-title" ] [ text post.title ] ]
     ]
 
 postLinkAttrs : Msg -> String -> List (Attribute Msg)
-postLinkAttrs = linkAttrs "post-link"
+postLinkAttrs =
+  linkAttrs "post-link"

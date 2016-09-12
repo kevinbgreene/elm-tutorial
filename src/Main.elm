@@ -4,13 +4,11 @@ module Main exposing (..)
 import Navigation
 import Messages exposing (..)
 import Routing.Parsers exposing (urlParser)
-import Routing.Routes exposing (Route)
+import Routing.Routes exposing (Route(..))
 import View exposing (view)
 import Models exposing (State, Post, newState)
+import Tasks exposing (..)
 import Update exposing (..)
-import Decoders.Posts exposing (..)
-import Http
-import Task
 
 
 main : Program Never
@@ -24,19 +22,17 @@ main =
     }
 
 
-fetchPosts : String -> Cmd Msg
-fetchPosts url =
-  Task.perform FetchFail FetchSucceed (Http.get decodePosts url)
-
-
 init : Route -> (State, Cmd Msg)
 init route =
-    let
-      url =
-        "http://localhost:3000/api/posts"
+  case route of
+    HomeRoute ->
+      ( newState route, fetchPosts )
 
-    in
-      ( newState route, fetchPosts url )
+    PostRoute postId ->
+      ( newState route, fetchPost postId )
+
+    _ ->
+      ( newState route, Cmd.none )
 
 
 -- SUBSCRIPTIONS

@@ -12,5 +12,6 @@ type alias PostId =
 type Msg
   = ShowHome
   | ShowPost PostId
-  | FetchSucceed (List Post)
-  | FetchFail Http.Error
+  | PostsReceived (List Post)
+  | PostReceived Post
+  | FetchFailed Http.Error

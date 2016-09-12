@@ -7,11 +7,13 @@
     "express": "^4.14.0"
   },
   "devDependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "nodemon": "^1.10.2"
   },
   "scripts": {
-    "clean-build": "rm -rf elm-stuff; elm package install -y; elm make ./src/Main.elm --output=app.js;",
-    "build": "elm make ./src/Main.elm --output=app.js;",
+    "serve": "nodemon --watch ./server ./server/index.js",
+    "clean-build": "rm -rf elm-stuff; elm package install -y; elm make ./src/Main.elm --output=./assets/js/app.js;",
+    "build": "elm make ./src/Main.elm --output=./assets/js/app.js;",
     "test": "cd tests; elm package install -y; elm make ./Test.elm --output=test.js; node -r ./mock-document ./test.js; cd ..;"
   },
   "repository": {

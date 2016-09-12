@@ -21,8 +21,11 @@ parse {pathname} =
       else
         pathname
 
+    result =
+      UrlParser.parse identity routeParser path
+
   in
-    case UrlParser.parse identity routeParser path of
+    case result of
       Err err -> NotFound
 
       Ok route -> route
