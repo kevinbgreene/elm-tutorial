@@ -34,4 +34,4 @@ Part Three: [Single-Page Web Apps in Elm: Part Tree - Testing and Structure Stru
 
 Part Four: [Single-Page Web Apps in Elm: Part Four - Side Effects](https://www.linkedin.com/pulse/single-page-web-apps-elm-part-four-side-effects-kevin-greene)
 
-Part Five: [Single-Page Web Apps in Elm: Part Five - JavaScript Interoperability](https://www.linkedin.com/pulse/single-page-web-apps-elm-part-five-javascript-interoperability-kevin-greene)
+Part Five: [Single-Page Web Apps in Elm: Part Five - JavaScript Interoperability](https://www.linkedin.com/pulse/single-page-web-apps-elm-part-five-javascript-kevin-greene)
