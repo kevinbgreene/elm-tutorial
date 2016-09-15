@@ -6,9 +6,10 @@ import Messages exposing (..)
 import Routing.Parsers exposing (urlParser)
 import Routing.Routes exposing (Route(..))
 import View exposing (view)
-import Models exposing (State, Post, newState)
+import Models exposing (State, Post, newPost, newState)
 import Tasks exposing (..)
 import Update exposing (..)
+import Ports as Ports
 
 
 main : Program Never
@@ -26,13 +27,19 @@ init : Route -> (State, Cmd Msg)
 init route =
   case route of
     HomeRoute ->
-      ( newState route, fetchPosts )
+      ( newState route Nothing, fetchPosts )
 
     PostRoute postId ->
-      ( newState route, fetchPost postId )
+      ( newState route Nothing, fetchPost postId )
+
+    NewPostRoute ->
+      ( newState route (Just newPost), Cmd.none )
+
+    EditPostRoute postId ->
+      ( newState route Nothing, Ports.get postId )
 
     _ ->
-      ( newState route, Cmd.none )
+      ( newState route Nothing, Cmd.none )
 
 
 -- SUBSCRIPTIONS
@@ -40,4 +47,4 @@ init route =
 
 subscriptions : State -> Sub Msg
 subscriptions state =
-  Sub.none
+  Ports.load PostReceived

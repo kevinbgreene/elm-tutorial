@@ -6,6 +6,7 @@ import Html.Attributes exposing (class, href)
 import Routing.Routes as Routing
 import Routing.Routes exposing (..)
 import Post.View.Detail as PostDetail
+import Post.View.Edit as PostEdit
 import View.NotFound as NotFoundView
 import Messages exposing (Msg(..))
 import Models exposing (State, Post)
@@ -25,6 +26,12 @@ bodyContent state =
 
     PostRoute postId ->
       PostDetail.view state.current
+
+    NewPostRoute ->
+      PostEdit.view Nothing
+
+    EditPostRoute postId ->
+      PostEdit.view state.current
 
     _ ->
       NotFoundView.view

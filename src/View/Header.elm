@@ -21,9 +21,14 @@ headerNav =
     homePath =
       Routing.reverse HomeRoute
 
+    newPostPath =
+      Routing.reverse NewPostRoute
+
   in
     nav [ class "header-nav" ]
-      [ a (headerLinkAttrs ShowHome homePath) [ text "Home" ] ]
+      [ a (headerLinkAttrs ShowHome homePath) [ text "Home" ]
+      , a (headerLinkAttrs ShowNewPost newPostPath) [ text "Create" ]
+      ]
 
 
 headerLinkAttrs : Msg -> String -> List (Attribute Msg)

@@ -8,7 +8,20 @@
 <body>
   <script src="/js/app.js"></script>
   <script>
-    Elm.Main.fullscreen();
+    const app = Elm.Main.fullscreen();
+    const storageKey = 'current';
+
+    app.ports.save.subscribe((post) => {
+      window.localStorage.setItem(storageKey, JSON.stringify(post));
+    });
+
+    app.ports.get.subscribe((id) => {
+      const raw = window.localStorage.getItem(storageKey);
+      if (raw !== null) {
+        const post = JSON.parse(raw);
+        app.ports.load.send(post);
+      }
+    });
   </script>
 </body>
 </html>

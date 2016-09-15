@@ -21,11 +21,20 @@ type alias Post =
   }
 
 
-newState : Route -> State
-newState route =
+newPost : Post
+newPost =
+  { id = 0
+  , author = ""
+  , title = ""
+  , body = ""
+  }
+
+
+newState : Route -> Maybe Post -> State
+newState route post =
   { route = route
   , loading = False
   , error = Nothing
   , posts = Nothing
-  , current = Nothing
+  , current = post
   }

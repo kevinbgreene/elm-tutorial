@@ -37,9 +37,21 @@ parse {pathname} =
 routeParser : Parser (Route -> a) a
 routeParser =
   oneOf
-    [ format PostRoute postParser
-    , format HomeRoute homeParser
+    [ format HomeRoute homeParser
+    , format EditPostRoute editPostParser
+    , format NewPostRoute newPostParser
+    , format PostRoute postParser
     ]
+
+
+editPostParser : Parser (Int -> a) a
+editPostParser =
+  s "post" </> int </> s "edit"
+
+
+newPostParser : Parser a a
+newPostParser =
+  s "post" </> s "new"
 
 
 postParser : Parser (Int -> a) a
